@@ -1,5 +1,5 @@
 -- Este Script es parte de la documentación
---Configuración de replicación en PostgreSQL
+--Configuración de replicación en MySQL
 
 -- Configuración en Maestro 1
 
