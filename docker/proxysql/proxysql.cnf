@@ -1,24 +1,18 @@
 datadir="/var/lib/proxysql"
-admin_variables =
+
+admin_variables=
 {
     admin_credentials="admin:admin"
     mysql_ifaces="0.0.0.0:6033"
 }
 
-mysql_variables =
-{
-    threads=4
-    max_connections=2048
-    wait_timeout=28800000
-}
-
 mysql_servers =
 (
-    { address="maestro1", port=3306, hostgroup=10 },
-    { address="maestro2", port=3306, hostgroup=10 }
+  { address="maestro1", port=3306, hostgroup=10 },
+  { address="maestro2", port=3306, hostgroup=10 }
 )
 
 mysql_users =
 (
-    { username="app_user", password="app2025", default_hostgroup=10 }
+  { username="app_user", password="app2025", default_hostgroup=10 }
 )

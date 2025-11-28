@@ -3,7 +3,7 @@ FROM mysql:8.0
 
 # Copiar el archivo de configuración personalizado
 COPY my.cnf /etc/mysql/conf.d/
-COPY ../scripts/init.sql /docker-entrypoint-initdb.d/
+COPY init.sql /docker-entrypoint-initdb.d/
 
 # Exponer el puerto 3306 para conexiones externas
 EXPOSE 3306
