@@ -1,3 +1,4 @@
+name: mysql-replica
 services:
 
   maestro1:
