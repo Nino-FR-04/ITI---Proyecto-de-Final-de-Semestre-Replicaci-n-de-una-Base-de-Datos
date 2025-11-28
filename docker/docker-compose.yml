@@ -1,0 +1,44 @@
+services:
+
+  maestro1:
+    build: ./maestro1
+    container_name: maestro1
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - vol-maestro1:/var/lib/mysql
+      - ./scripts:/scripts
+    networks:
+      - replica-net
+
+  maestro2:
+    build: ./maestro2
+    container_name: maestro2
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - vol-maestro2:/var/lib/mysql
+      - ./scripts:/scripts
+    networks:
+      - replica-net
+
+  proxysql:
+    build: ./proxysql
+    container_name: proxysql
+    ports:
+      - "6033:6033"
+    volumes:
+      - proxysql_data:/var/lib/proxysql
+    networks:
+      - replica-net
+    depends_on:
+      - maestro1
+      - maestro2
+
+volumes:
+  vol-maestro1:
+  vol-maestro2:
+  proxysql_data:
+
+networks:
+  replica-net:
